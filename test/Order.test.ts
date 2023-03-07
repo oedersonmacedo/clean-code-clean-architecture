@@ -20,7 +20,7 @@ test('Should to create an order with discount coupon', function () {
     order.addItem(new Item(1, 'example 1', 'category 1', 1000), 2);
     order.addItem(new Item(2, 'example 2', 'category 1', 5000), 3);
     order.addItem(new Item(3, 'example 3', 'category 2', 30), 4);
-    const coupon = new Coupon('COUPON20', 20);
+    const coupon = new Coupon('COUPON20', 20,  new Date());
     order.addCoupon(coupon)
 
     expect(order.getTotal()).toBe(13696);
