@@ -1,0 +1,26 @@
+{
+  "name": "clean-code-clean-architecture",
+  "version": "1.0.0",
+  "description": "Clean code and Clean architecture",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc && jest ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oedersonmacedo/clean-code-clean-architecture.git"
+  },
+  "author": "Ederson Macedo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oedersonmacedo/clean-code-clean-architecture/issues"
+  },
+  "homepage": "https://github.com/oedersonmacedo/clean-code-clean-architecture#readme",
+  "dependencies": {
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "jest": "^29.4.3"
+  }
+}
