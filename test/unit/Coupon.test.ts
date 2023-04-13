@@ -1,4 +1,4 @@
-import Coupon from "../src/Coupon";
+import Coupon from "../../src/domain/entity/Coupon";
 
 test('Should to generate Coupon', function () {
     const expireIn = new Date();

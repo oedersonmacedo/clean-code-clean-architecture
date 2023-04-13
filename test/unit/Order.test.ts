@@ -1,7 +1,7 @@
-import Coupon from "../src/Coupon";
-import Dimension from "../src/Dimension";
-import Item from "../src/Item";
-import Order from "../src/Order"
+import Coupon from "../../src/domain/entity/Coupon";
+import Dimension from "../../src/domain/entity/Dimension";
+import Item from "../../src/domain/entity/Item";
+import Order from "../../src/domain/entity/Order";
 
 test('Should not to generate Order with invalid Cpf', function () {
     expect(() => new Order('123.456.789-99')).toThrow(new Error('invalid CPF'));

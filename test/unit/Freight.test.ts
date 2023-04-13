@@ -1,6 +1,6 @@
-import Dimension from "../src/Dimension";
-import Freight from "../src/Freight";
-import Item from "../src/Item";
+import Dimension from "../../src/domain/entity/Dimension";
+import Freight from "../../src/domain/entity/Freight";
+import Item from "../../src/domain/entity/Item";
 
 test("Should to calculate the freight of an item", function () {
 	const item = new Item(1, "Example 1", "category", 1000, new Dimension(100, 30, 10), 3);
