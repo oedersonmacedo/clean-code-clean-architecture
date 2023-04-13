@@ -11,7 +11,7 @@ export default class PlaceOrder {
 
     execute(input: PlaceOrderInput): PlaceOrderOutput {
         const order = new Order(input.cpf);
-        for (const orderItem of input.orderItem){
+        for (const orderItem of input.orderItems){
             const item = this.itemRepository.getById(orderItem.idItem);
             if(!item) throw new Error('Item not found');
             order.addItem(item, orderItem.quantity);
