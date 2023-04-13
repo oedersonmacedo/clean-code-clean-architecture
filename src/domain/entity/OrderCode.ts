@@ -1,4 +1,4 @@
-export class OrderCode {
+export default class OrderCode {
     value: string;
 
     constructor(readonly date: Date = new Date(), readonly sequence: number) {
