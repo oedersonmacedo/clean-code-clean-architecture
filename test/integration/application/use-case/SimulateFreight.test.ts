@@ -1,5 +1,5 @@
-import SimulateFreight from "../../src/application/use-case/simulate-freight/SimulateFreight";
-import ItemRepositoryMemory from "../../src/infra/repository/memory/ItemRepositoryMamory";
+import SimulateFreight from "../../../../src/application/use-case/simulate-freight/SimulateFreight";
+import ItemRepositoryMemory from "../../../../src/infra/repository/memory/ItemRepositoryMamory";
 
 test("Should to simulate freight of an order", function() {
     const itemRepository = new ItemRepositoryMemory();

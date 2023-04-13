@@ -1,10 +1,10 @@
-import PlaceOrder from "../../src/application/use-case/place-order/PlaceOrder";
-import CouponRepository from "../../src/domain/repository/CouponRepository";
-import ItemRepository from "../../src/domain/repository/ItemRepository";
-import OrderRepository from "../../src/domain/repository/OrderRepository";
-import CouponRepositoryMemory from "../../src/infra/repository/memory/CouponRepositoryMemory";
-import ItemRepositoryMemory from "../../src/infra/repository/memory/ItemRepositoryMamory";
-import OrderRepositoryMemory from "../../src/infra/repository/memory/OrderRepositoryMamory";
+import PlaceOrder from "../../../../src/application/use-case/place-order/PlaceOrder";
+import CouponRepository from "../../../../src/domain/repository/CouponRepository";
+import ItemRepository from "../../../../src/domain/repository/ItemRepository";
+import OrderRepository from "../../../../src/domain/repository/OrderRepository";
+import CouponRepositoryMemory from "../../../../src/infra/repository/memory/CouponRepositoryMemory";
+import ItemRepositoryMemory from "../../../../src/infra/repository/memory/ItemRepositoryMamory";
+import OrderRepositoryMemory from "../../../../src/infra/repository/memory/OrderRepositoryMamory";
 
 let itemRepository: ItemRepository;
 let orderRepository: OrderRepository;

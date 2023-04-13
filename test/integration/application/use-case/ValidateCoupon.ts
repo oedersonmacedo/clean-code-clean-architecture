@@ -1,5 +1,5 @@
-import ValidateCoupon from "../../src/application/use-case/validate-coupon/ValidateCoupon";
-import CouponRepositoryMemory from "../../src/infra/repository/memory/CouponRepositoryMemory"
+import ValidateCoupon from "../../../../src/application/use-case/validate-coupon/ValidateCoupon";
+import CouponRepositoryMemory from "../../../../src/infra/repository/memory/CouponRepositoryMemory"
 
 test("Should to validate a discount coupon", function () {
     const couponRepository = new CouponRepositoryMemory();
