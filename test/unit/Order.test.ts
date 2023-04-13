@@ -53,3 +53,12 @@ test('Should to create an order with minimum value of freight', function () {
 	const total = order.getTotal();
 	expect(total).toBe(40);
 });
+
+test('Should to create an order calculating the code', function () {
+    const order = new Order('111.444.777-35',new Date("2023-04-01T10:00:00"), 1);
+    order.addItem(new Item(1, 'example 1', 'category 1', 1000), 2);
+    order.addItem(new Item(2, 'example 2', 'category 1', 5000), 3);
+    order.addItem(new Item(3, 'example 3', 'category 2', 30), 4);
+
+    expect(order.code.value).toBe("202300000001");
+});
