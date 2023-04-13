@@ -1,14 +1,17 @@
 import Order from "../../../domain/entity/Order";
 import OrderRepository from "../../../domain/repository/OrderRepository";
 
-export class OrdemRepositoryMemory implements OrderRepository {
-    order: Order[];
+export default class OrderRepositoryMemory implements OrderRepository {
+    orders: Order[];
     constructor() {
-        this.order =[];
+        this.orders =[];
+    }
+
+    count(): number {
+        return this.orders.length;
     }
 
     save(order: Order): void {
-        this.order.push(order);
+        this.orders.push(order);
     }
-
 }
