@@ -15,7 +15,7 @@ beforeEach(function () {
 	orderRepository = new OrderRepositoryMemory();
 	couponRepository = new CouponRepositoryMemory();
 });
-test("Should to create a order", function () {
+test("Should to create a order", async function () {
     const placeOrder = new PlaceOrder(itemRepository, orderRepository, couponRepository);
     const input = {
         cpf: "935.411.347-80",
@@ -26,11 +26,11 @@ test("Should to create a order", function () {
         ],
         issueDate: new Date("2023-04-13T10:00:00")
     };
-    const output = placeOrder.execute(input);
+    const output = await placeOrder.execute(input);
     expect(output.total).toBe(6350);
 })
 
-test("Should to create a order with coupon", function () {
+test("Should to create a order with coupon", async function () {
     const placeOrder = new PlaceOrder(itemRepository, orderRepository, couponRepository);
     const input = {
         cpf: "935.411.347-80",
@@ -42,11 +42,11 @@ test("Should to create a order with coupon", function () {
         coupon: "COUPON20",
         issueDate: new Date("2023-04-13T10:00:00")
     };
-    const output = placeOrder.execute(input);
+    const output = await placeOrder.execute(input);
     expect(output.total).toBe(5132);
 })
 
-test("Should to create a order calculating a code", function () {
+test("Should to create a order calculating a code", async function () {
     const placeOrder = new PlaceOrder(itemRepository, orderRepository, couponRepository);
     const input = {
         cpf: "935.411.347-80",
@@ -58,11 +58,11 @@ test("Should to create a order calculating a code", function () {
         coupon: "COUPON20",
         issueDate: new Date("2023-04-13T10:00:00")
     };
-    const output = placeOrder.execute(input);
+    const output = await placeOrder.execute(input);
     expect(output.code).toBe("202300000001");
 })
 
-test("Should to create a order calculating two code", function () {
+test("Should to create a order calculating two code", async function () {
     const placeOrder = new PlaceOrder(itemRepository, orderRepository, couponRepository);
     const input = {
         cpf: "935.411.347-80",
@@ -74,7 +74,7 @@ test("Should to create a order calculating two code", function () {
         coupon: "COUPON20",
         issueDate: new Date("2023-04-13T10:00:00")
     };
-    placeOrder.execute(input);
-    const output = placeOrder.execute(input);
+    await placeOrder.execute(input);
+    const output = await placeOrder.execute(input);
     expect(output.code).toBe("202300000002");
 })

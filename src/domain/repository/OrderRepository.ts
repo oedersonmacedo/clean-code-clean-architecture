@@ -1,6 +1,6 @@
 import Order from "../entity/Order";
 
 export default interface OrderRepository {
-    count(): number;
-    save(order: Order): void;
+    count(): Promise<number>;
+    save(order: Order): Promise<void>;
 }

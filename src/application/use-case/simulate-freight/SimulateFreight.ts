@@ -8,10 +8,10 @@ export default class SimulateFreight {
 
     }
 
-    execute(input: SimulateFreightInput): SimulateFreightOutput {
+    async execute(input: SimulateFreightInput): Promise<SimulateFreightOutput> {
         const freight = new Freight();
         for (const orderItem of input.orderItems){
-            const item = this.itemRepository.getById(orderItem.idItem);
+            const item = await this.itemRepository.getById(orderItem.idItem);
             if(!item) throw new Error('Item not found');
             freight.addItem(item, orderItem.quantity);
         }
