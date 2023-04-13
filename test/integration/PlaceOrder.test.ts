@@ -1,4 +1,4 @@
-import PlaceOrder from "../../src/application/use-case/PlaceOrder";
+import PlaceOrder from "../../src/application/use-case/place-order/PlaceOrder";
 import CouponRepository from "../../src/domain/repository/CouponRepository";
 import ItemRepository from "../../src/domain/repository/ItemRepository";
 import OrderRepository from "../../src/domain/repository/OrderRepository";
@@ -27,7 +27,7 @@ test("Should to create a order", function () {
         issueDate: new Date("2023-04-13T10:00:00")
     };
     const output = placeOrder.execute(input);
-    expect(output.total).toBe(6090);
+    expect(output.total).toBe(6350);
 })
 
 test("Should to create a order with coupon", function () {
@@ -43,7 +43,7 @@ test("Should to create a order with coupon", function () {
         issueDate: new Date("2023-04-13T10:00:00")
     };
     const output = placeOrder.execute(input);
-    expect(output.total).toBe(4872);
+    expect(output.total).toBe(5132);
 })
 
 test("Should to create a order calculating a code", function () {
