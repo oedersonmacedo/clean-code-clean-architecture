@@ -1,7 +1,7 @@
 import CouponRepository from "../../../domain/repository/CouponRepository";
 import Coupon from "../../../domain/entity/Coupon";
 
-export class CouponRepositoryMemory implements CouponRepository {
+export default class CouponRepositoryMemory implements CouponRepository {
     coupons: Coupon[];
 
     constructor() {
