@@ -1,22 +1,14 @@
 import PlaceOrder from "../../../../src/application/use-case/place-order/PlaceOrder";
-import CouponRepository from "../../../../src/domain/repository/CouponRepository";
-import ItemRepository from "../../../../src/domain/repository/ItemRepository";
-import OrderRepository from "../../../../src/domain/repository/OrderRepository";
-import CouponRepositoryMemory from "../../../../src/infra/repository/memory/CouponRepositoryMemory";
-import ItemRepositoryMemory from "../../../../src/infra/repository/memory/ItemRepositoryMamory";
-import OrderRepositoryMemory from "../../../../src/infra/repository/memory/OrderRepositoryMamory";
+import RepositoryFactory from "../../../../src/domain/factory/RepositoryFactory";
+import MemoryRepositoryFactory from "../../../../src/infra/factory/MemoryRepositoryFactory";
 
-let itemRepository: ItemRepository;
-let orderRepository: OrderRepository;
-let couponRepository: CouponRepository;
+let repositoryFactory: RepositoryFactory
 
 beforeEach(function () {
-	itemRepository = new ItemRepositoryMemory();
-	orderRepository = new OrderRepositoryMemory();
-	couponRepository = new CouponRepositoryMemory();
+    repositoryFactory = new MemoryRepositoryFactory();
 });
 test("Should to create a order", async function () {
-    const placeOrder = new PlaceOrder(itemRepository, orderRepository, couponRepository);
+    const placeOrder = new PlaceOrder(repositoryFactory);
     const input = {
         cpf: "935.411.347-80",
         orderItems: [ 
@@ -31,7 +23,7 @@ test("Should to create a order", async function () {
 })
 
 test("Should to create a order with coupon", async function () {
-    const placeOrder = new PlaceOrder(itemRepository, orderRepository, couponRepository);
+    const placeOrder = new PlaceOrder(repositoryFactory);
     const input = {
         cpf: "935.411.347-80",
         orderItems: [ 
@@ -47,7 +39,7 @@ test("Should to create a order with coupon", async function () {
 })
 
 test("Should to create a order calculating a code", async function () {
-    const placeOrder = new PlaceOrder(itemRepository, orderRepository, couponRepository);
+    const placeOrder = new PlaceOrder(repositoryFactory);
     const input = {
         cpf: "935.411.347-80",
         orderItems: [ 
@@ -63,7 +55,7 @@ test("Should to create a order calculating a code", async function () {
 })
 
 test("Should to create a order calculating two code", async function () {
-    const placeOrder = new PlaceOrder(itemRepository, orderRepository, couponRepository);
+    const placeOrder = new PlaceOrder(repositoryFactory);
     const input = {
         cpf: "935.411.347-80",
         orderItems: [ 
