@@ -56,9 +56,18 @@ export default class OrderRepositoryDatabase implements OrderRepository {
 	}
     
 	async save(order: Order): Promise<void> {
-		const [orderData] = await this.connection.query("insert into ccca.order (code, cpf, issue_date, coupon, freight, sequence, total) values ($1, $2, $3, $4, $5, $6, $7) returning *", [order.code.value, order.cpf.getValue(), order.issueDate, order.coupon?.code, order.freight.getTotal(), order.sequence, order.getTotal()]);
-		for (const orderItem of order.orderItems) {
-			await this.connection.query("insert into ccca.order_item (id_order, id_item, price, quantity) values ($1, $2, $3, $4)", [orderData.id_order, orderItem.idItem, orderItem.price, orderItem.quantity]);
+		await this.connection.query('BEGIN');
+		try {
+			const [orderData] = await this.connection.query("insert into ccca.order (code, cpf, issue_date, coupon, freight, sequence, total) "
+			+"values ($1, $2, $3, $4, $5, $6, $7) returning *", 
+			[ order.code.value, order.cpf.getValue(), order.issueDate, order.coupon?.code, order.freight.getTotal(), order.sequence, order.getTotal() ]);
+			for (const orderItem of order.orderItems) {
+				await this.connection.query("insert into ccca.order_item (id_order, id_item, price, quantity) values ($1, $2, $3, $4)", [orderData.id_order, orderItem.idItem, orderItem.price, orderItem.quantity]);
+			}
+			await this.connection.query('COMMIT');
+		} catch (error) {
+			await this.connection.query("ROLLBACK");
+			throw error;
 		}
 	}
 
