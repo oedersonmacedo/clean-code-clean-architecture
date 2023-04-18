@@ -5,7 +5,7 @@ import OrderRepository from "../../domain/repository/OrderRepository";
 import Connection from "../database/Connection";
 import CouponRepositoryDatabase from "../repository/database/CouponRepositoryDatabase";
 import ItemRepositoryDatabase from "../repository/database/ItemRepositoryDatabase";
-import OrderRepositoryMemory from "../repository/memory/OrderRepositoryMamory";
+import OrderRepositoryMemory from "../repository/memory/OrderRepositoryMemory";
 
 export default class DatabaseRepositoryFactory implements RepositoryFactory {
 
