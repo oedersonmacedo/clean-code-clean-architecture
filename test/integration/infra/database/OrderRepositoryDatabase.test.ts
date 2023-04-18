@@ -46,7 +46,7 @@ test("Should to list orders", async function () {
 	expect(count).toBe(3);
 	const savedOrders = await orderRepository.getAll();
 	expect(savedOrders).toHaveLength(3);
-	const [savedOrder1, savedOrder2, savedOrder3] = savedOrders;
+	const [,, savedOrder3] = savedOrders;
 	expect(savedOrder3.getTotal()).toBe(5152);
 });
 
