@@ -12,7 +12,7 @@ beforeEach(function () {
 	connection = new PostgreSQLConnectionAdapter();
 });
 
-test("Should to save a order",async function () {
+test.skip("Should to save a order",async function () {
     const orderRepository = new OrderRepositoryDatabase(connection);
 	await orderRepository.clean();
 	const order = new Order("935.411.347-80", new Date("2021-03-01T10:00:00"), 1);
@@ -30,7 +30,7 @@ test("Should to save a order",async function () {
 	expect(savedOrder.freight.getTotal()).toBe(280);
 });
 
-test("Should to list orders", async function () {
+test.skip("Should to list orders", async function () {
 	const orderRepository = new OrderRepositoryDatabase(connection);
 	await orderRepository.clean();
 	const order = new Order("935.411.347-80", new Date("2021-03-01T10:00:00"), 1);

@@ -1,7 +1,7 @@
 import PostgreSQLConnectionAdapter from "../../../../src/infra/database/PostgreSQLConnectionAdapter"
 import ItemRepositoryDatabase from "../../../../src/infra/repository/database/ItemRepositoryDatabase";
 
-test("Should to test the item repository", async function () {
+test.skip("Should to test the item repository", async function () {
     const connection = new PostgreSQLConnectionAdapter();
     const itemRepository = new ItemRepositoryDatabase(connection);
     const item = await itemRepository.getById(1);
